@@ -1,0 +1,26 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo" class="page">
+    <Page.actionBar>
+        <ActionBar title="health-data" icon="" class="action-bar">
+        </ActionBar>
+    </Page.actionBar>
+
+    <StackLayout class="p-20">
+      <Label row="0" horizontalAlignment="center" text="{{ resultToShow }}" textWrap="true"></Label>
+        <ScrollView class="h-full">
+          <StackLayout>
+            <Button ios:text="Apple Health Data available?" android:text="Google Fit Data available?" tap="{{ isAvailable }}" class="btn btn-primary"/>
+            <Button text="Is Authorized?" tap="{{ isAuthorized }}" class="btn btn-primary"/>
+            <Button text="Request Authorization" tap="{{ requestAuthForVariousTypes }}" class="btn btn-primary"/>
+            <Button text="Test health-data" tap="{{ testIt }}" class="btn btn-primary"/>
+            <Button text="Test health-data" tap="{{ testIt }}" class="btn btn-primary"/>
+            <Button text="Test health-data" tap="{{ testIt }}" class="btn btn-primary"/>
+            <Button text="Test health-data" tap="{{ testIt }}" class="btn btn-primary"/>
+            <Button text="Test health-data" tap="{{ testIt }}" class="btn btn-primary"/>
+            <Button text="Test health-data" tap="{{ testIt }}" class="btn btn-primary"/>
+            <Button text="Test health-data" tap="{{ testIt }}" class="btn btn-primary"/>
+
+
+          </StackLayout>
+        </ScrollView>
+    </StackLayout>
+</Page>

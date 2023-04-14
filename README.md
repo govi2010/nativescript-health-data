@@ -24,7 +24,7 @@ npm run setup
 npm start
 ```
 
-- @nativescript
+- [@nativescript/health-data](packages/health-data/README.md)
 
 # How to use?
 

@@ -1,0 +1,65 @@
+{
+  "name": "health-data",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "packages/health-data",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "options": {
+        "outputPath": "dist/packages/health-data",
+        "tsConfig": "packages/health-data/tsconfig.json",
+        "packageJson": "packages/health-data/package.json",
+        "main": "packages/health-data/index.d.ts",
+        "assets": [
+          "packages/health-data/*.md",
+          "packages/health-data/index.d.ts",
+          "LICENSE",
+          {
+            "glob": "**/*",
+            "input": "packages/health-data/platforms/",
+            "output": "./platforms/"
+          }
+        ],
+        "dependsOn": [
+          {
+            "target": "build.all",
+            "projects": "dependencies"
+          }
+        ]
+      }
+    },
+    "build.all": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["node tools/scripts/build-finish.ts health-data"],
+        "parallel": false
+      },
+      "outputs": ["dist/packages/health-data"],
+      "dependsOn": [
+        {
+          "target": "build.all",
+          "projects": "dependencies"
+        },
+        {
+          "target": "build",
+          "projects": "self"
+        }
+      ]
+    },
+    "focus": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["nx g @nativescript/plugin-tools:focus-packages health-data"],
+        "parallel": false
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["packages/health-data/**/*.ts"]
+      }
+    }
+  },
+  "tags": []
+}
